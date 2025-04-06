@@ -1,54 +1,89 @@
-# React + TypeScript + Vite
+# Advanced Todo Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A feature-rich Todo List application with calendar integration, advanced task management capabilities, and local data persistence.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Core Features
+- Create, edit, delete, and view todos with titles, descriptions, and due dates
+- Mark tasks as completed
+- Filter and sort tasks by various criteria
+- Responsive design for desktop and mobile devices
 
-## Expanding the ESLint configuration
+### Advanced Features
+- **Calendar View**: Monthly, weekly, and daily views similar to Google Calendar
+- **Categories**: Organize tasks into custom categories
+- **Tags**: Add multiple tags to tasks for better organization
+- **Priorities**: Set importance levels for better task management
+- **Recurring Tasks**: Create tasks that repeat on a schedule
+- **Subtasks**: Break down complex tasks into smaller, manageable parts
+- **Time Tracking**: Monitor time spent on tasks
+- **Templates**: Save and reuse task templates for common activities
+- **Statistics**: View insights about your productivity and task completion
+- **Dark/Light Mode**: Toggle between visual themes
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Technology Stack
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- **Frontend**: React with TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS
+- **UI Components**: shadcn/ui (based on Radix UI)
+- **State Management**: Zustand
+- **Data Storage**: IndexedDB for client-side persistence
+- **Date Handling**: date-fns for date manipulation
+
+## Installation
+
+```bash
+# Clone the repository (if applicable)
+git clone <repository-url>
+cd todo-app
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Usage
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Task Management
+- **Creating Tasks**: Click the "Add Todo" button to create a new task
+- **Editing Tasks**: Click on a task to view and edit its details
+- **Completing Tasks**: Check the checkbox next to a task to mark it as complete
+- **Filtering Tasks**: Use the filter controls to find tasks by status, category, priority, etc.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+### Calendar Usage
+- **Switching Views**: Toggle between month, week, and day views
+- **Adding Events**: Click on a time slot to add a new task at that time
+- **Viewing Events**: Click on an event in the calendar to see details
+
+### Categories and Tags
+- **Managing Categories**: Use the Categories view to create and edit categories
+- **Adding Tags**: When creating or editing a task, type and press Enter to add tags
+
+### Templates
+- **Creating Templates**: Save frequently used task configurations as templates
+- **Using Templates**: Select a template when creating a new task to pre-fill details
+
+## Data Storage
+
+The application uses IndexedDB to store all data locally in your browser. No data is sent to external servers, ensuring privacy and offline functionality.
+
+## Development
+
+### Project Structure
+- `/src/components`: UI components
+- `/src/db`: Database configuration and access
+- `/src/store`: Zustand state management
+- `/src/lib`: Utility functions and hooks
+
+### Building for Production
+```bash
+npm run build
 ```
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
